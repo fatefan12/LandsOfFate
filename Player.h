@@ -11,7 +11,7 @@ class Player{
 	public:
 		//CLASS PROPERTIES
 		int posX, posY, velX, velY, velG;
-		SDL_Rect figura;
+		SDL_Rect playerBody;
 		
 		//CLASS METHODS
 		Player(int, int);

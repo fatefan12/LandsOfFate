@@ -96,7 +96,7 @@ int	main(int argc, char* args[]){
     	for(i=0; i < OBS; i++){
     		SDL_RenderDrawRect(renderer, &structure[i]);
 			}
-		SDL_RenderCopy(renderer, playerTexture, NULL, &(player.figura));
+		SDL_RenderCopy(renderer, playerTexture, NULL, &(player.playerBody));
 		SDL_RenderPresent(renderer);
 		}
 	term();

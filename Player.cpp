@@ -10,10 +10,10 @@ Player::Player(int h, int w){
 	velX = 0;
 	velY = 0;
 	velG = 1;
-	figura.x = 0;
-	figura.y = 0;
-	figura.h = h;
-	figura.w = w;
+	playerBody.x = 0;
+	playerBody.y = 0;
+	playerBody.h = h;
+	playerBody.w = w;
 	}
 
 void Player::setVelX(int x){
@@ -45,7 +45,7 @@ void Player::move(SDL_Rect *o){
 	for(int i = 0, j = 0; i <= velX || j >= velX; i++, j--){
 		posX += (velX < 0) ? j : i;
 			
-		if(posX > SCREEN_WIDTH - figura.w || posX < 0 || checkColl(o)){ //TODO: ESTO PUEDE IR A UN METODO
+		if(posX > SCREEN_WIDTH - playerBody.w || posX < 0 || checkColl(o)){
 			posX -= (velX < 0) ? j : i;
 		}
 	}
@@ -53,21 +53,21 @@ void Player::move(SDL_Rect *o){
 	for(int i = 0, j = 0; i <= velY || j >= velY; i++, j--){
 		posY += (velY < 0) ? j : i;
 			
-		if(posY > SCREEN_HEIGHT - figura.h || posY < 0 || checkColl(o)){ //TODO: ESTO PUEDE IR A UN METODO
+		if(posY > SCREEN_HEIGHT - playerBody.h || posY < 0 || checkColl(o)){
 			posY -= (velY < 0) ? j : i;
 		}
 	}
 		
-	figura.x = posX;
-	figura.y = posY;
+	playerBody.x = posX;
+	playerBody.y = posY;
 	}
 
 bool Player::checkColl(SDL_Rect *o){
-	SDL_Rect *i;
 	
-	for(i = o; i < o + OBS; i++){
-		if(posX > i->x - figura.w && posX < i->x + i->w && posY > i->y - figura.h && posY < i->y + i->h) //TODO: SEPARAR EN DOS IFs
-			return	true;
+	for(SDL_Rect *i = o; i < o + OBS; i++){
+		if(posX > i->x - playerBody.w && posX < i->x + i->w)
+			if(posY > i->y - playerBody.h && posY < i->y + i->h)
+				return	true;
 		}
 		
 	return	false;
