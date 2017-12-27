@@ -7,15 +7,23 @@
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGHT 600
 
-class Jugador{
+class Player{
 	public:
-		bool quitFlag;
+		//CLASS PROPERTIES
 		int posX, posY, velX, velY, velG;
 		SDL_Rect figura;
 		
-		Jugador(int, int);
+		//CLASS METHODS
+		Player(int, int);
 		bool checkColl(SDL_Rect *), manageEvent(SDL_Event &);
-		//bool manageEvent(SDL_Event &); //TODO: PROBAR ESTO
 		void move(SDL_Rect *);
+		
+		//GETTERS AND SETTERS
+		void setVelX(int);
+		void setVelY(int);
+		void setVelG(int);
+		int getVelX(void);
+		int getVelY(void);
+		int getVelG(void);
 	};
 #endif  //DATA_H_INCLUDED
