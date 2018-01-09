@@ -47,16 +47,16 @@ void Player::move(SDL_Rect *o){
 			
 		if(posX > SCREEN_WIDTH - playerBody.w || posX < 0 || checkColl(o)){
 			posX -= (velX < 0) ? j : i;
+			}
 		}
-	}
 	
 	for(int i = 0, j = 0; i <= velY || j >= velY; i++, j--){
 		posY += (velY < 0) ? j : i;
 			
 		if(posY > SCREEN_HEIGHT - playerBody.h || posY < 0 || checkColl(o)){
 			posY -= (velY < 0) ? j : i;
+			}
 		}
-	}
 		
 	playerBody.x = posX;
 	playerBody.y = posY;

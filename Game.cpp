@@ -80,7 +80,7 @@ bool manageEvent(SDL_Event &e, Player *player){
 int	main(int argc, char* args[]){
 	bool quitFlag = 0;
 	int	imgFlags = IMG_INIT_PNG,i;
-	SDL_Rect structure[OBS]={100, 550, 100, 15, 400, 100, 50, 50, 100, 100, 20, 100, 200, 300, 50, 100}; //PASAR A CLASE
+	SDL_Rect structure[OBS] = {100, 550, 100, 15, 400, 100, 50, 50, 100, 100, 20, 100, 200, 300, 50, 100}; //PASAR A CLASE
 	SDL_Event e;
 	init();
 	pl = IMG_Load("PJ.png");
